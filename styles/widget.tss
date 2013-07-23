@@ -1,0 +1,12 @@
+'#view': {
+	layout: 'horizontal',
+	width: Ti.UI.SIZE,
+	height: 20
+}
+
+
+'.starButton': {
+	width: 20, height: 20,
+	image: '/StarRating/star_disabled.png'
+}
+

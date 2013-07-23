@@ -1,0 +1,9 @@
+<Alloy>
+	<View id="view" onClick="clickRating">
+		<ImageView class="starButton" id="star_1" rating="1"/>
+		<ImageView class="starButton" id="star_2" rating="2"/>
+		<ImageView class="starButton" id="star_3" rating="3"/>
+		<ImageView class="starButton" id="star_4" rating="4"/>
+		<ImageView class="starButton" id="star_5" rating="5"/>
+	</View>
+</Alloy>

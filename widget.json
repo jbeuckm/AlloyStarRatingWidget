@@ -1,0 +1,11 @@
+{
+	"id": "StarRating",
+	"name": "StarRating",
+	"description" : "",
+	"author": "",
+	"version": "1.0",
+	"min-alloy-version": "1.0",
+	"min-titanium-version":"2.1",
+	"tags":"",
+	"platforms":"android,ios,mobileweb,blackberry"
+}
