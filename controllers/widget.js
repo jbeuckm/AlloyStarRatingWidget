@@ -18,10 +18,15 @@ function setRating(r) {
 
 function clickRating(e) {
 	setRating(e.source.rating);
+	$.view.fireEvent('change', {rating: rating});
 }
 
+if (args.rating) {
+	setRating(args.rating);
+}
 
 exports = {
-	setRating: setRating
+	setRating: setRating,
+	getRating: function(){ return rating; }
 };
 
