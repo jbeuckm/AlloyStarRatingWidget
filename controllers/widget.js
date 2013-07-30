@@ -15,10 +15,20 @@ function setRating(r) {
 	
 }
 
+var locked = false;
+function lock() {
+	locked = true;
+}
+
 
 function clickRating(e) {
-	setRating(e.source.rating);
-	$.view.fireEvent('change', {rating: rating});
+	if (!locked) {
+		setRating(e.source.rating);
+		$.view.fireEvent('change', {rating: rating});
+	}
+	else {
+		Ti.API.trace('ignoring click for locked rating widget');
+	}
 }
 
 if (args.rating) {
@@ -27,6 +37,7 @@ if (args.rating) {
 
 exports = {
 	setRating: setRating,
-	getRating: function(){ return rating; }
+	getRating: function(){ return rating; },
+	lock: lock
 };
 
