@@ -1,10 +1,30 @@
 var args = arguments[0] || {};
 
-var mode = args.mode;
+var DIMENSION = args.dimension || 40;
+
+//$.view.width = 5 * DIMENSION + 4 * 4;
 
 var onStarImage = '/StarRating/star_enabled.png';
 var offStarImage = '/StarRating/star_disabled.png';
 var inputStarImage = '/StarRating/star_input.png';
+
+
+$.view.height = DIMENSION;
+for (var i=1; i<=5; i++) {
+	
+	$['starHolder'+i].width = DIMENSION;
+	$['starHolder'+i].height = DIMENSION;
+	
+	$['star_'+i+'_left'].height = DIMENSION;
+	$['star_'+i+'_left'].width = DIMENSION;
+	
+	$['star_'+i+'_right'].backgroundImage = offStarImage;
+	$['star_'+i+'_right'].height = DIMENSION;
+	$['star_'+i+'_right'].width = DIMENSION;
+}
+
+
+var mode = args.mode;
 
 
 var rating;
@@ -15,36 +35,49 @@ function setRating(r) {
 	updateDisplay();
 }
 
+
+
+
 function updateDisplay() {
-Ti.API.info('updating display of star rating widget in mode '+mode);	
+
 	if (mode == 'input') {
 		for (var i=1; i<=5; i++) {
-			$['star_'+i].image = inputStarImage;
+			$['star_'+i+'_left'].backgroundImage = inputStarImage;
+			$['star_'+i+'_left'].width = DIMENSION;
+			$['star_'+i+'_right'].width = 0;
 		}
 	}
 	else {
 		
+		Ti.API.info('star rating widget value = '+rating);
+		
 		for (var i=1; i<=5; i++) {
+
+			$['star_'+i+'_left'].backgroundImage = onStarImage;
+			$['star_'+i+'_right'].width = DIMENSION;
+
 			if (i <= rating) {
-				$['star_'+i].image = onStarImage;
+				$['star_'+i+'_left'].width = DIMENSION;
+			}
+			else if (i + 1 > rating) {
+				
+				var fraction = rating - i;
+				
+				$['star_'+i+'_left'].width = fraction * DIMENSION;
 			}
 			else {
-				$['star_'+i].image = offStarImage;
+				$['star_'+i+'_left'].width = 0;
 			}
 		}
 	}
-	
 }
-
 
 
 function clickRating(e) {
 	if (mode == 'input') {
+Ti.API.info(e);
 		setRating(e.source.rating);
 		$.view.fireEvent('change', {rating: rating});
-	}
-	else {
-		Ti.API.trace('ignoring click for display mode rating widget');
 	}
 }
 

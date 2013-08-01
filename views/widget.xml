@@ -1,9 +1,30 @@
 <Alloy>
-	<View id="view" onClick="clickRating">
-		<ImageView class="starButton" id="star_1" rating="1"/>
-		<ImageView class="starButton" id="star_2" rating="2"/>
-		<ImageView class="starButton" id="star_3" rating="3"/>
-		<ImageView class="starButton" id="star_4" rating="4"/>
-		<ImageView class="starButton" id="star_5" rating="5"/>
+	<View id="view">
+		
+		<View class="starHolder" id="starHolder1" rating="1" onClick="clickRating">
+			<View class="starButton" id="star_1_right" rating="1"/>
+			<View class="starButton" id="star_1_left" rating="1"/>
+		</View>
+			
+		<View class="starHolder" id="starHolder2" rating="2" onClick="clickRating">
+			<View class="starButton" id="star_2_right" rating="2"/>
+			<View class="starButton" id="star_2_left" rating="2"/>
+		</View>
+			
+		<View class="starHolder" id="starHolder3" rating="3" onClick="clickRating">
+			<View class="starButton" id="star_3_right" rating="3"/>
+			<View class="starButton" id="star_3_left" rating="3"/>
+		</View>
+			
+		<View class="starHolder" id="starHolder4" rating="4" onClick="clickRating">
+			<View class="starButton" id="star_4_right" rating="4"/>
+			<View class="starButton" id="star_4_left" rating="4"/>
+		</View>
+			
+		<View class="starHolder" id="starHolder5" rating="5" onClick="clickRating">
+			<View class="starButton" id="star_5_right" rating="5"/>
+			<View class="starButton" id="star_5_left" rating="5"/>
+		</View>
+			
 	</View>
 </Alloy>
