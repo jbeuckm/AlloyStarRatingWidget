@@ -2,11 +2,9 @@ var args = arguments[0] || {};
 
 var DIMENSION = args.dimension || 40;
 
-//$.view.width = 5 * DIMENSION + 4 * 4;
-
-var onStarImage = '/StarRating/star_enabled.png';
-var offStarImage = '/StarRating/star_disabled.png';
-var inputStarImage = '/StarRating/star_input.png';
+var onStarImage = args.onStarImage || '/StarRating/star_enabled.png';
+var offStarImage = args.offStarImage || '/StarRating/star_disabled.png';
+var inputStarImage = args.inputStarImage || '/StarRating/star_input.png';
 
 
 $.view.height = DIMENSION;
