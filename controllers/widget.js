@@ -30,7 +30,7 @@ var mode = args.mode;
 var rating;
 
 function setRating(r) {
-	rating = r;
+	rating = parseFloat(r);
 	
 	updateDisplay();
 }
@@ -51,23 +51,24 @@ function updateDisplay() {
 		
 		Ti.API.info('star rating widget value = '+rating);
 		
+		var ratingFloor = Math.floor(rating);
+		
 		for (var i=1; i<=5; i++) {
 
 			$['star_'+i+'_left'].backgroundImage = onStarImage;
 			$['star_'+i+'_right'].width = DIMENSION;
 
-			if (i <= rating) {
+			if (i <= ratingFloor) {
 				$['star_'+i+'_left'].width = DIMENSION;
 			}
-			else if (i + 1 > rating) {
-				
-				var fraction = rating - i;
-				
+			else if (i-1<rating && i>rating) {
+				var fraction = rating - (i-1);
 				$['star_'+i+'_left'].width = fraction * DIMENSION;
 			}
 			else {
 				$['star_'+i+'_left'].width = 0;
-			}
+			}			
+			
 		}
 	}
 }
@@ -84,7 +85,7 @@ Ti.API.info(e);
 updateDisplay();
 
 if (args.rating) {
-	setRating(parseFloat(args.rating));
+	setRating(args.rating);
 }
 
 exports = {
