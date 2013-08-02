@@ -14,9 +14,8 @@ This one shows the widget as an input that will emit "change" events when clicke
 <Widget id="myRating" src="StarRating" mode="input"/>
 ```
 
-To responsd when the input rating is clicked:
+To respond when the input rating is clicked:
 
-In the controller:
 ```javascript
 $.myRating.getView().addEventListener('change', alert);
 ```

@@ -25,11 +25,15 @@ for (var i=1; i<=5; i++) {
 var mode = args.mode;
 
 
-var rating;
 
 function setRating(r) {
-	rating = parseFloat(r);
-	
+	if (typeof r == 'string') {
+		rating = parseFloat(r);
+	}
+	else {
+		rating = r;
+	}
+Ti.API.info('setting rating widget to value '+(0+rating));	
 	updateDisplay();
 }
 
@@ -80,11 +84,13 @@ Ti.API.info(e);
 	}
 }
 
-updateDisplay();
 
-if (args.rating) {
-	setRating(args.rating);
-}
+Ti.API.info('got rating from args = '+args.rating+' '+(typeof args.rating));
+
+var rating = args.rating || 0;
+Ti.API.info('stored rating = '+rating+' '+(typeof rating));
+setRating(rating);
+
 
 exports = {
 	
