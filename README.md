@@ -21,6 +21,12 @@ In the controller:
 $.myRating.getView().addEventListener('change', alert);
 ```
 
+After the user chooses their rating, you might want to put the widget in display mode:
+```javascript
+$.myRating.setMode("display");
+```
+
+
 The widget comes with a set of default images, but you can use your own. Square images work best, and here is how to specify a custom set of images:
 
 ```javascript
