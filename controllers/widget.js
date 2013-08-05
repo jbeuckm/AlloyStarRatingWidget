@@ -1,6 +1,7 @@
 var args = arguments[0] || {};
 
 var DIMENSION = args.dimension || 40;
+var GUTTER = args.gutter || 2;
 
 var onStarImage = args.onStarImage || '/StarRating/star_enabled.png';
 var offStarImage = args.offStarImage || '/StarRating/star_disabled.png';
@@ -12,6 +13,7 @@ for (var i=1; i<=5; i++) {
 	
 	$['starHolder'+i].width = DIMENSION;
 	$['starHolder'+i].height = DIMENSION;
+	$['starHolder'+i].right = GUTTER;
 	
 	$['star_'+i+'_left'].height = DIMENSION;
 	$['star_'+i+'_left'].width = DIMENSION;
