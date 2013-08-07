@@ -94,12 +94,9 @@ Ti.API.info('stored rating = '+rating+' '+(typeof rating));
 setRating(rating);
 
 
-exports = {
-	
-	setMode: function(m) { mode = m; updateDisplay(); },
-	
-	setRating: setRating,
-	getRating: function(){ return rating; },
+exports.setMode = function(m) { mode = m; updateDisplay(); };
+exports.setRating = setRating;
+exports.getRating = function(){ return rating; };
 
-};
+
 
