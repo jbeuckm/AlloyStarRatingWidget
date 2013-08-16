@@ -35,7 +35,7 @@ function setRating(r) {
 	else {
 		rating = r;
 	}
-Ti.API.info('setting rating widget to value '+(0+rating));	
+
 	updateDisplay();
 }
 
@@ -52,8 +52,6 @@ function updateDisplay() {
 		}
 	}
 	else {
-		
-		Ti.API.info('star rating widget value = '+rating);
 		
 		var ratingFloor = Math.floor(rating);
 		
@@ -80,17 +78,12 @@ function updateDisplay() {
 
 function clickRating(e) {
 	if (mode == 'input') {
-Ti.API.info(e);
 		setRating(e.source.rating);
 		$.view.fireEvent('change', {rating: rating});
 	}
 }
 
-
-Ti.API.info('got rating from args = '+args.rating+' '+(typeof args.rating));
-
 var rating = args.rating || 0;
-Ti.API.info('stored rating = '+rating+' '+(typeof rating));
 setRating(rating);
 
 
