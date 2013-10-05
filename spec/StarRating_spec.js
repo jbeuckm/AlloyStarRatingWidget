@@ -14,7 +14,7 @@ describe("StarRating Tests", function() {
 			
 		});
 		
-		xit("can set and get the checkbox value", function() {
+		xit("can set and get the widget value", function() {
 			
 			widget.setValue(true);
 			expect(widget.getValue()).toEqual(true);
